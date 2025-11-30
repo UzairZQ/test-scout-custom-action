@@ -1,0 +1,16 @@
+name: Run The Custom Action
+
+on: [push, workflow_dispatch]
+
+jobs:
+  check-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run test-scout
+        uses: UzairZQ/test-scout-custom-action@main
+        with:
+          pattern: 'test_*.py'
+          strict_mode: 'false'
